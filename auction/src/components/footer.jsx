@@ -1,7 +1,9 @@
 function Footer() {
   return (
     <div className="flex items-center bg-gray-200 py-2 text-center">
-      <h1>Footer</h1>
+      <div className="container mx-auto ">
+        <h1>Footer</h1>
+      </div>
     </div>
   );
 }

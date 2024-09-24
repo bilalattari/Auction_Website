@@ -12,12 +12,13 @@ function Header() {
 
   const addProduct = () => {
     if (user.isLogin) {
+      navigate("/addProduct");
     } else {
       navigate("/signin");
     }
   };
   return (
-    <div className="flex justify-between items-center py-3 container">
+    <div className="flex mx-auto justify-between items-center py-3 container">
       <h1 className="font-mono text-2xl">Logo</h1>
       {auth.currentUser ? (
         <div className="flex gap-2">
