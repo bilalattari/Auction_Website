@@ -5,7 +5,8 @@ import { categories } from "../../utils/categories";
 import { Button } from "antd";
 import { useNavigate } from "react-router";
 import dayjs from "dayjs";
-import relativeTime from 'dayjs/plugin/relativeTime' // ES 2015
+import relativeTime from "dayjs/plugin/relativeTime"; // ES 2015
+import { Link } from "react-router-dom";
 dayjs.extend(relativeTime);
 
 function AllProducts() {
@@ -25,7 +26,6 @@ function AllProducts() {
         arr.push({ ...product.data(), id: product.id })
       );
       setProducts([...arr]);
-      console.log("arr==>", arr);
     } catch (err) {
       console.log(err);
     }
@@ -39,15 +39,18 @@ function AllProducts() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
           {products.map((data) => (
-            <div className="border rounded-md overflow-hidden" key={data.id}>
-              <img src={data.img} className="h-60 w-full" />
-              <div className="p-2">
-                <h1>{data.title}</h1>
+            <Link to={`/products/${data.id}`} key={data.id}>
+              <div className="border rounded-md overflow-hidden" >
+                <img src={data.img} className="h-60 w-full" />
+                <div className="p-2">
+                  <h1>{data.title}</h1>
+                  <h1 className="font-bold mt-2">Sale Price :{data.price}</h1>
+                </div>
+                <div className="p-2">
+                  <h1>{dayjs().to(data.createdAt.toDate())}</h1>
+                </div>
               </div>
-              <div className="p-2">
-                <h1>{dayjs().to(data.createdAt.toDate())}</h1>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

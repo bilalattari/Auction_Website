@@ -18,21 +18,29 @@ function Header() {
     }
   };
   return (
-    <div className="flex mx-auto justify-between items-center py-3 container">
-      <h1 className="font-mono text-2xl">Logo</h1>
-      {auth.currentUser ? (
-        <div className="flex gap-2">
-          <Button onClick={addProduct}>Add Product</Button>
-          <Avatar src={user?.photoUrl} />
-        </div>
-      ) : (
-        <div className="flex gap-2">
-          <Button>Add Product</Button>
-          <Link to={"/signin"}>
-            <Button>Login</Button>
-          </Link>
-        </div>
-      )}
+    <div
+      className="
+    border-b-2 border-purple-800
+    py-3"
+    >
+      <div className=" container  flex mx-auto justify-between items-center">
+        <h1 className="font-mono text-2xl">Logo</h1>
+        {auth.currentUser ? (
+          <div className="flex gap-2">
+            <Button onClick={addProduct}>Add Product</Button>
+            <Link to={"/user/profile"}>
+              <Avatar src={user?.photoUrl} />
+            </Link>
+          </div>
+        ) : (
+          <div className="flex gap-2">
+            <Button>Add Product</Button>
+            <Link to={"/signin"}>
+              <Button>Login</Button>
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
