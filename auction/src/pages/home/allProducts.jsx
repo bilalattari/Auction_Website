@@ -4,9 +4,9 @@ import { db } from "../../utils/firebase";
 import { categories } from "../../utils/categories";
 import { Button } from "antd";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime"; // ES 2015
-import { Link } from "react-router-dom";
 dayjs.extend(relativeTime);
 
 function AllProducts() {

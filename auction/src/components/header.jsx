@@ -34,7 +34,7 @@ function Header() {
           </div>
         ) : (
           <div className="flex gap-2">
-            <Button>Add Product</Button>
+            <Link to={'/addProduct'}><Button>Add Product</Button></Link> 
             <Link to={"/signin"}>
               <Button>Login</Button>
             </Link>

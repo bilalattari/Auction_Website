@@ -29,9 +29,19 @@ function App() {
 
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/addProduct" element={<AddProduct />} />
+          <Route
+            path="/addProduct"
+            element={
+              user.isLogin ? <AddProduct /> : <Navigate to={"/signin"} />
+            }
+          />
           <Route path="products" element={<AllProducts />} />
-          <Route path="products/:id" element={<ProductDetail />} />
+          <Route
+            path="products/:id"
+            element={
+              user.isLogin ? <ProductDetail /> : <Navigate to={"/signin"} />
+            }
+          />
         </Route>
         <Route
           path="/user"
